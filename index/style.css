@@ -1,0 +1,421 @@
+/* styles.css
+   Contém todo o CSS que estava dentro do <style> no HTML original.
+   Mantenha este arquivo na mesma pasta do HTML ou ajuste o href no <link>.
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  background: url("../img/fundo.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #232323;
+  font-family: "Nunito", cursive;
+  margin: 0;
+  padding: 0;
+}
+/* ========== RED BULL HEADER ========== */
+header {
+  background: #fff3cb;
+  border-bottom: 2px solid #e6e6e6;
+  width: 100%;
+  font-family: "Poppins", Arial, sans-serif;
+  position: relative;
+  z-index: 100;
+}
+.rb-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 68px;
+  position: relative;
+}
+.rb-logo img {
+  height: 38px;
+}
+
+/* Ajuste: garantir que todos os itens do menu fiquem visíveis e com espaço entre */
+.rb-menu {
+  display: flex;
+  gap: 22px;
+  flex: 1;                     /* ocupar o espaço disponível entre logo e login */
+  justify-content: space-evenly; /* distribuir espaço entre os itens */
+  align-items: center;
+  flex-wrap: nowrap;           /* manter em linha em desktop */
+  overflow-x: visible;         /* permitir que todos os itens fiquem visíveis */
+  padding: 0 8px;
+}
+
+.rb-menu a {
+  color: #232323;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 8px 2px;
+  transition: color 0.2s;
+  position: relative;
+  white-space: nowrap;   /* não quebrar linha em desktop */
+  flex: 0 0 auto;        /* não encolher excessivamente */
+  min-width: 0;
+  overflow: visible;
+  text-overflow: clip;
+}
+.rb-menu a:hover,
+.rb-menu a:focus {
+  color: #e61900;
+}
+.rb-menu a:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #e61900;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.rb-menu a:hover:after,
+.rb-menu a:focus:after {
+  width: 100%;
+}
+.rb-login {
+  margin-left: 16px;
+}
+.rb-signin-btn {
+  background: #e61900;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 20px;
+  padding: 9px 20px;
+  text-decoration: none;
+  font-size: 0.97rem;
+  box-shadow: 0 2px 8px rgba(230, 25, 0, 0.07);
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 1px;
+  display: inline-block;
+  white-space: nowrap; /* evita quebra no botão */
+}
+.rb-signin-btn:hover {
+  background: #232323;
+  color: #fff;
+}
+.rb-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #232323;
+  cursor: pointer;
+  margin-left: 12px;
+}
+@media (max-width: 900px) {
+  .rb-header-container {
+    padding: 0 8px;
+  }
+  .rb-menu {
+    gap: 12px;
+    font-size: 0.96rem;
+  }
+}
+@media (max-width: 700px) {
+  .rb-header-container {
+    height: 54px;
+  }
+  .rb-logo img {
+    height: 30px;
+  }
+  .rb-login {
+    margin-left: 4px;
+  }
+  .rb-signin-btn {
+    padding: 7px 12px;
+    font-size: 0.9rem;
+  }
+  .rb-menu-btn {
+    display: block;
+  }
+  /* comportamento mobile: menu vira coluna (mantive sua lógica) */
+  .rb-menu {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 99;
+    overflow-x: visible; /* garantir visibilidade quando vertical */
+    padding: 0;
+    justify-content: flex-start;
+  }
+  .rb-menu.open {
+    display: flex;
+  }
+  .rb-menu a {
+    padding: 14px 0;
+    width: 100%;
+    text-align: center;
+    white-space: normal; /* permitir quebra em mobile */
+    overflow: visible;
+  }
+}
+/* ========== BEM-VINDO ========== */
+.welcome-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 38px;
+}
+.welcome-box {
+  background: rgba(255, 243, 203, 0.88);
+  border-radius: 26px;
+  box-shadow: 0 4px 32px rgba(230, 25, 0, 0.07), 0 1.5px 0 #01e602 inset;
+  padding: 38px 28px 28px 28px;
+  max-width: 510px;
+  text-align: center;
+  border: 2.5px solid #e61900;
+  position: relative;
+}
+.welcome-box:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border-radius: 22px;
+  border: 1.5px dashed #01e602;
+  pointer-events: none;
+  opacity: 0.38;
+}
+.welcome-box h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.7rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 0 0 14px 0;
+  line-height: 1.13;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #e61900 0%, #01e602 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 3px 14px rgba(0, 0, 0, 0.08);
+  animation: welcomeFadeIn 1.2s cubic-bezier(0.44, 0.14, 0.34, 1.17);
+}
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.welcome-main {
+  display: block;
+  font-size: 2.4rem;
+}
+.welcome-to {
+  display: block;
+  font-size: 1.2rem;
+  letter-spacing: 6px;
+}
+.welcome-city {
+  display: block;
+  font-size: 2.1rem;
+}
+.welcome-desc {
+  font-size: 1.1rem;
+  color: #232323;
+  font-family: "Nunito", cursive;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.welcome-icon {
+  font-size: 1.45em;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+/* ========== RESTANTE DO SITE ========== */
+main {
+  padding: 100px 0 40px 0; /* espaçamento superior aumentado para afastar o conteúdo do cabeçalho */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+}
+.carousel-section {
+  width: 100%;
+  max-width: 1100px; /* mudou para max-width para ser responsivo */
+  margin: 0 auto;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.swiper {
+  width: 100%;
+  padding: 38px 0 38px 0;
+}
+.swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+.swiper-slide {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.14);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  height: 350px; /* agora sem !important para permitir ajustes responsivos */
+  margin: 0; /* removido margin lateral que conflitia com spaceBetween */
+  transition: box-shadow 0.22s;
+}
+.slide-img-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) blur(0.5px);
+  z-index: 1;
+  transition: filter 0.2s;
+}
+.slide-gradient {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #fff3cb 0%, #e61900 100%);
+  opacity: 0.24;
+  z-index: 2;
+}
+.slide-content {
+  position: relative;
+  z-index: 3;
+  padding: 30px 32px 28px 32px;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.slide-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.slide-desc {
+  font-size: 1.1rem;
+  font-family: "Nunito", cursive;
+  line-height: 1.3;
+  max-width: 90%;
+  text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.15);
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #e61900;
+  background: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e61900;
+  top: 58%;
+  transition: background 0.2s;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.swiper-pagination-bullet {
+  background: #e61900;
+  opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+  background: #e61900;
+  opacity: 1;
+  width: 22px;
+  border-radius: 10px;
+}
+
+/* REGRAS RESPONSIVAS */
+@media (max-width: 700px) {
+  .welcome-section {
+    margin-bottom: 18px;
+  }
+  .welcome-box {
+    padding: 18px 8px 16px 8px;
+    max-width: 98vw;
+  }
+  .welcome-box h1 {
+    font-size: 1.2rem;
+  }
+  .welcome-main {
+    font-size: 1.1rem;
+  }
+  .welcome-to {
+    font-size: 0.73rem;
+  }
+  .welcome-city {
+    font-size: 0.96rem;
+  }
+  .welcome-desc {
+    font-size: 0.95rem;
+    gap: 4px;
+  }
+  main {
+    padding: 70px 0 20px 0; /* padding-top reduzido para mobile */
+  }
+  .carousel-section {
+    border-radius: 16px;
+    padding: 0 3px;
+  }
+  .swiper {
+    padding: 16px 0;
+  }
+  .swiper-slide {
+    height: 170px; /* altura reduzida para telas pequenas */
+  }
+  .slide-title {
+    font-size: 1rem;
+  }
+  .slide-content {
+    padding: 12px 8px 12px 10px;
+  }
+}
