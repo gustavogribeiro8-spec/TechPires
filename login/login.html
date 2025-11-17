@@ -1,226 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    body {
-      background-color: #fff3cc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-    }
-
-    .back-arrow {
-      font-size: 24px;
-      text-decoration: none;
-      color: black;
-    }
-
-    .logo {
-      height: 40px;
-    }
-
-    .login-box {
-      background-color: #ffe529;
-      padding: 30px 20px;
-      border-radius: 5px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    label {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    input {
-      margin-top: 5px;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    .password-tip {
-      font-size: 12px;
-      color: #333;
-      margin-top: 5px;
-    }
-
-    .btn-entrar {
-      margin-top: 15px;
-      padding: 12px;
-      background-color: #337ab7;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .cadastro {
-      margin-top: 10px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .cadastro a {
-      color: #337ab7;
-      text-decoration: none;
-    }
-
-    .divider {
-      display: flex;
-      align-items: center;
-      margin: 20px 0;
-    }
-
-    .divider hr {
-      flex: 1;
-      height: 1px;
-      background-color: black;
-      border: none;
-    }
-
-    .divider span {
-      margin: 0 10px;
-      font-weight: bold;
-    }
-
-    .social-login button {
-      width: 100%;
-      margin: 5px 0;
-      padding: 10px;
-      border: none;
-      border-radius: 20px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .google {
-      background-color: white;
-      border: 1px solid #ccc;
-    }
-
-    .facebook {
-      background-color: white;
-      border: 1px solid #ccc;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - Ribeirão Pires Turismo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Nunito:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
     <header>
-      <a href="../index/index.html" class="back-arrow">&#8592;</a>
-      <img src="./ChatGPT Image 12 de ago. de 2025, 09_06_32.png" alt="Tech Pires Logo" class="logo" />
+    <div class="rb-header-container">
+      <!-- Logo -->
+      <a href="#" class="rb-logo">
+        <img src="../img/logo.png" height="50px" width="50px" alt="Logo Ribeirão Pires">
+      </a>
+      <!-- Menu ADICIONADO AQUI -->
+      <nav class="rb-menu">
+        <a href="../index/#">Início</a>
+        <a href="../história/historia.html">História</a>
+        <a href="../pontos turisticos/pt.html">Pontos Turísticos</a>
+        <a href="../gastronomia/#">Gastronomia</a>
+        <a href="../eventos/#">Eventos</a>
+        <a href="../mapa/#">Mapa</a>
+      </nav>
+
+        <button class="menu-btn" aria-label="Menu">&#9776;</button>
+      </div>
     </header>
 
     <main>
-      <div class="login-box">
-        <h1>LOGIN</h1>
-
-        <form id="loginForm">
-          <label for="email">Email:</label>
-          <input type="email" id="email" required />
-
-          <label for="senha">Senha:</label>
-          <input type="password" id="senha" required />
-          <p class="password-tip">Mínimo de 8 caracteres, letras e números!</p>
-
-          <button type="submit" class="btn-entrar">ENTRAR</button>
-        </form>
-
-        <p class="cadastro">Não tem conta? <a href="../cadastro/cadastro.html">Cadastre-se aqui</a></p>
-
-        <div class="divider">
-          <hr /><span>ou</span><hr />
+      <section class="login-section">
+        <div class="login-box">
+          <h1 class="login-title">LOGIN</h1>
+          <form id="loginForm" class="form">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Seu email" required autocomplete="username"/>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Sua senha" required autocomplete="current-password"/>
+            <span class="password-tip">Mínimo de 8 caracteres, letras e números</span>
+            <button type="submit" class="btn-entrar">Entrar</button>
+          </form>
+          <div class="cadastro">
+            <span>Não tem conta?</span> <a href="../cadastro/cadastro.html">Cadastre-se aqui</a>
+          </div>
+          
+          <div class="divider">
+            <hr><span> ou </span><hr>
+          </div>
+          
+          <div class="social-login">
+            <button class="google">
+              <img src="https://img.icons8.com/color/20/000000/google-logo.png" alt="Google" />
+              Entrar com Google
+            </button>
+            <button class="facebook">
+              <img src="https://img.icons8.com/color/20/000000/facebook.png" alt="Facebook" />
+              Entrar com Facebook
+            </button>
+          </div>
         </div>
-
-        <div class="social-login">
-          <button class="google">
-            <img src="https://img.icons8.com/color/16/000000/google-logo.png" />
-            ENTRAR COM GOOGLE
-          </button>
-          <button class="facebook">
-            <img src="https://img.icons8.com/color/16/000000/facebook.png" />
-            ENTRAR COM FACEBOOK
-          </button>
-        </div>
-      </div>
+      </section>
     </main>
-  </div>
-
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const email = document.getElementById("email").value.trim();
-      const senha = document.getElementById("senha").value.trim();
-
-      const senhaValida = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-      if (email === "") {
-        alert("Por favor, preencha o campo de email.");
-        return;
-      }
-
-      if (senha === "") {
-        alert("Por favor, preencha o campo de senha.");
-        return;
-      }
-
-      if (!senhaValida.test(senha)) {
-        alert("A senha deve conter no mínimo 8 caracteres, com letras e números.");
-        return;
-      }
-
-      // Simulando sucesso de login
-      alert("Login realizado com sucesso!");
-      // Redirecionar (você pode mudar esse destino)
-      window.location.href = "dashboard.html";
-    });
-  </script>
-</body>
+<br><br><br><br><br><br><br>
+    <footer>
+      <p>&copy; 2025 Ribeirão Pires Turismo. Trabalho acadêmico - Desenvolvimento de Sistemas.</p>
+    </footer>
+    <script src="login.js"></script>
+  </body>
 </html>
