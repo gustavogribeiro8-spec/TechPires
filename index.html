@@ -2,298 +2,754 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>Ribeirão Pires — OnePage</title>
+    <title>Ribeirão Pires — Turismo, Eventos e Gastronomia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Guia de turismo de Ribeirão Pires: pontos turísticos, gastronomia, eventos, mapa e história. Planeje sua visita com dicas locais."
+    />
+    <meta
+      name="keywords"
+      content="Ribeirão Pires,turismo,gastronomia,eventos,parque oriental,tour,visitar"
+    />
+    <link rel="canonical" href="https://seusite.exemplo/" />
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Ribeirão Pires — OnePage" />
+    <meta property="og:title" content="Ribeirão Pires — Guia de Turismo" />
+    <meta
+      property="og:description"
+      content="Explore cultura, natureza e experiências únicas em Ribeirão Pires. Pontos turísticos, gastronomia e agenda de eventos."
+    />
+    <meta
+      property="og:image"
+      content="https://seusite.exemplo/img/ribeiraopires.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://seusite.exemplo/" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ribeirão Pires — Guia de Turismo" />
+    <meta
+      name="twitter:description"
+      content="Explore cultura, natureza e experiências únicas em Ribeirão Pires."
+    />
+    <meta
+      name="twitter:image"
+      content="https://seusite.exemplo/img/ribeiraopires.jpg"
+    />
+    <!-- Theme & icons -->
+    <meta name="theme-color" content="#FFF8EE" />
+    <link rel="icon" href="img/logo-removebg-preview.ico" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Nunito:wght@400;700&display=swap"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="./header-styles.css" />
-    <link rel="shortcut icon" href="./img/logo-removebg-preview.ico" />
-    <style>
-      /* Reset & base */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+    <noscript>
+      <style>
+        .swiper {
+          height: 240px;
+        }
+      </style>
+    </noscript>
+
+    <!-- Dados estruturados -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TouristDestination",
+        "name": "Ribeirão Pires",
+        "description": "Guia de turismo de Ribeirão Pires com pontos turísticos, gastronomia e eventos.",
+        "url": "https://seusite.exemplo/",
+        "image": "https://seusite.exemplo/img/ribeiraopires.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ribeirão Pires",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        }
       }
-      html,
+    </script>
+    <style>
+      :root {
+        --bg: #fff8ee;
+        --card: #ffffff;
+        --muted: #6b6f76;
+        --accent: #e86c4d;
+        --accent-2: #8fc1a9;
+        --ink: #0f1723;
+        --glass: rgba(255, 255, 255, 0.7);
+        --shadow: 0 8px 24px rgba(15, 23, 35, 0.08);
+        --radius: 12px;
+        --container: 1100px;
+        --transition: 300ms cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
       body {
-        height: 100%;
-        font-family: "Poppins", "Nunito", sans-serif;
-        color: #222;
+        font-family: "Poppins", "Nunito", system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        background: linear-gradient(180deg, var(--bg), #fffdf7);
+        color: var(--ink);
+        line-height: 1.6;
+        font-size: 16px;
+        margin: 0;
+      }
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 20px;
       }
       a {
-        color: inherit;
-        text-decoration: none;
+        transition: color 0.23s, background 0.23s;
       }
-      img {
-        max-width: 100%;
-        display: block;
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
       }
-
-      /* Header */
-      header {
-        background: #fff3cb;
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+      .skip-link:focus {
+        left: 20px;
+        top: 20px;
+        width: auto;
+        height: auto;
+        padding: 8px 12px;
+        background: var(--accent);
+        color: white;
+        border-radius: 6px;
+        z-index: 9999;
       }
       .rb-header-container {
-        max-width: 1200px;
-        margin: 0 auto;
         display: flex;
         align-items: center;
-        gap: 16px;
-        padding: 12px;
-        background-color: #fff3cb;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 20px;
+        max-width: var(--container);
+        margin: 0 auto;
+      }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 120;
+        backdrop-filter: blur(6px);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.92),
+          rgba(255, 255, 255, 0.86)
+        );
+        border-bottom: 1px solid rgba(16, 24, 32, 0.04);
+        transition: box-shadow var(--transition),
+          background-color var(--transition);
+      }
+      .site-header.scrolled {
+        box-shadow: 0 8px 30px rgba(15, 23, 35, 0.08);
+        background: rgba(255, 255, 255, 0.96);
       }
       .rb-logo img {
-        height: 46px;
+        display: block;
       }
       .rb-menu {
         display: flex;
-        gap: 16px;
-        margin-left: 12px;
+        gap: 14px;
         align-items: center;
       }
-      .rb-menu a {
+      .rb-menu a,
+      .mobile-nav a {
+        color: var(--muted);
+        text-decoration: none;
         padding: 8px 10px;
-        border-radius: 6px;
-        transition: background 0.15s;
+        border-radius: 8px;
+        font-weight: 600;
       }
-      .rb-menu a:hover {
-        background: rgba(0, 0, 0, 0.05);
+      .rb-menu a:hover,
+      .rb-menu a:focus,
+      .mobile-nav a:hover {
+        color: var(--ink);
+        background: rgba(232, 108, 77, 0.06);
       }
-      .rb-login {
-        margin-left: auto;
-      }
-      .rb-signin-btn {
+      .rb-login .rb-signin-btn {
+        display: inline-block;
         padding: 8px 12px;
-        background: #2b7cff;
-        color: #fff;
-        border-radius: 6px;
+        border-radius: 10px;
+        border: 1.5px solid rgba(15, 23, 35, 0.1);
+        text-decoration: none;
+        color: var(--ink);
+        background: transparent;
         font-weight: 700;
+        transition: transform var(--transition), box-shadow var(--transition);
+      }
+      .rb-signin-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
       }
       .rb-menu-btn {
         display: none;
-        background: none;
+        background: transparent;
         border: 0;
-        font-size: 26px;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
       }
-
-      /* Hero */
-      .welcome-section {
+      .hamburger {
+        font-size: 20px;
+      } /* mobile nav */
+      .mobile-nav {
+        display: none;
         background: linear-gradient(
           180deg,
-          rgba(19, 96, 255, 0.06),
-          rgba(255, 255, 255, 0)
+          rgba(255, 255, 255, 0.98),
+          rgba(255, 255, 255, 0.95)
         );
-        padding: 72px 0;
+        border-top: 1px solid rgba(16, 24, 32, 0.04);
+        box-shadow: 0 8px 20px rgba(15, 23, 35, 0.06);
       }
-      .welcome-box {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 24px;
-        text-align: center;
+      .mobile-nav[aria-hidden="true"] {
+        display: none;
+      }
+      .mobile-nav a {
+        display: block;
+        padding: 12px 20px;
+        color: var(--muted);
+        text-decoration: none;
+        border-radius: 0;
+      }
+      .mobile-nav a:hover {
+        background: rgba(143, 193, 169, 0.06);
+        color: var(--ink);
+      } /* HERO */
+      .welcome-section {
+        padding: 56px 0 36px;
+      }
+      .welcome-box.container {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        justify-content: space-between;
+      }
+      .welcome-text {
+        flex: 1;
+        min-width: 260px;
+      }
+      .welcome-text h1 {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1.05;
       }
       .welcome-main {
         display: block;
-        font-size: 36px;
-        font-weight: 700;
-        color: #0b3a8c;
+        font-weight: 600;
       }
       .welcome-city {
-        display: block;
-        font-size: 48px;
+        color: var(--accent);
         font-weight: 800;
-        color: #0b2240;
-        margin-top: 8px;
       }
       .welcome-desc {
-        color: #444;
-        margin-top: 12px;
-        font-size: 18px;
+        color: var(--muted);
+        margin-top: 8px;
       }
-
-      /* Carousel */
+      .hero-cta {
+        margin-top: 18px;
+      }
+      .welcome-media {
+        flex-basis: 420px;
+        flex-shrink: 0;
+        transform: translateZ(0);
+      }
+      .welcome-media img {
+        width: 100%;
+        border-radius: 14px;
+        object-fit: cover;
+        box-shadow: var(--shadow);
+        transition: transform 600ms cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+      .welcome-media img:hover {
+        transform: scale(1.03);
+      } /*
+    Buttons */
+      .btn-primary,
+      .btn-outline {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        outline: none;
+        box-shadow: 0 1.5px 5px #e86c4d0b;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: linear-gradient(92deg, var(--accent), #ff965d 80%);
+        color: #fff;
+        padding: 11px 20px;
+        border-radius: 12px;
+        border: 0;
+        font-weight: 800;
+        font-size: 1.07em;
+        letter-spacing: 0.02em;
+        box-shadow: 0 8px 32px rgba(232, 108, 77, 0.13);
+        transition: transform 0.25s cubic-bezier(0.2, 0.95, 0.3, 1.15),
+          box-shadow 0.33s cubic-bezier(0.18, 0.9, 0.3, 0.95),
+          filter 260ms cubic-bezier(0.3, 0.91, 0.62, 1.12);
+      }
+      .btn-primary:hover,
+      .btn-primary:focus {
+        transform: scale(1.04) translateY(-2px) rotateZ(-1deg);
+        filter: brightness(1.12) saturate(1.13);
+        box-shadow: 0 13px 38px var(--accent-2), 0 1.5px 12px #e86c4d44;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--accent-2);
+        color: var(--accent);
+        font-weight: 700;
+        border-radius: 10px;
+        padding: 10px 18px;
+        background: linear-gradient(93deg, #fff8ee 90%, #e4ffe222);
+        transition: background 0.26s cubic-bezier(0.23, 0.95, 0.46, 1.13),
+          border 0.17s, color 0.23s,
+          transform 0.21s cubic-bezier(0.19, 0.77, 0.58, 1.14),
+          box-shadow 0.27s cubic-bezier(0.19, 0.77, 0.58, 1.14);
+      }
+      .btn-outline:hover,
+      .btn-outline:focus {
+        background: linear-gradient(92deg, #8fc1a9 40%, #e86c4d22 90%);
+        color: var(--ink);
+        border-color: var(--accent);
+        transform: scale(1.045) translateY(-3px) rotateZ(-2deg);
+        box-shadow: 0 10px 24px #8fc1a922, 0 4px 12px #e86c4d24;
+      } /* Sections */
+      .content-section,
       .carousel-section {
-        max-width: 1200px;
-        margin: 28px auto;
-        padding: 0 12px;
+        background: rgba(255, 255, 255, 0.73);
+        box-shadow: 0 2px 22px 1.5px #0d17230e;
+        border-radius: 1.5em;
+        margin-bottom: 2em;
+        transition: background 700ms, box-shadow 400ms;
+      }
+      .section-title {
+        font-size: 1.25rem;
+        margin: 8px 0 6px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .lead {
+        color: var(--muted);
+        margin-bottom: 12px;
+      } /* Swiper/Carousel */
+      .carousel-section {
+        padding: 12px 0 36px;
       }
       .swiper {
-        width: 100%;
-        height: 420px;
-        border-radius: 12px;
-        overflow: hidden;
+        height: 56vh;
+        min-height: 420px;
+        max-height: 760px;
+        cursor: grab;
+        transition: height 400ms ease;
+      }
+      .swiper:active {
+        cursor: grabbing;
       }
       .swiper-slide {
         position: relative;
+        border-radius: 12px;
+        overflow: hidden;
         display: flex;
         align-items: flex-end;
+        min-height: inherit;
+        transition: box-shadow 0.43s cubic-bezier(0.13, 0.81, 0.68, 0.99),
+          filter 333ms cubic-bezier(0.15, 0.74, 0.34, 1.19),
+          transform 0.59s cubic-bezier(0.26, 0.87, 0.43, 1.19);
+      }
+      .swiper-slide .slide-content {
+        opacity: 0;
+        transform: translateY(34px) scale(0.94) skewY(3deg);
+        transition: opacity 888ms cubic-bezier(0.2, 0.91, 0.32, 1.11),
+          transform 888ms cubic-bezier(0.25, 0.91, 0.32, 1);
+      }
+      .swiper-slide-active .slide-content {
+        opacity: 1;
+        transform: none;
+      }
+      .swiper-slide-active {
+        z-index: 2;
+        box-shadow: 0 16px 44px #8fc1a924;
+        filter: brightness(1.08);
+        transform: scale(1.01) rotateZ(0.7deg);
       }
       .slide-img-bg {
         width: 100%;
         height: 100%;
         object-fit: cover;
         position: absolute;
-        left: 0;
-        top: 0;
+        inset: 0;
+        transform: translateZ(0);
+        transition: transform 900ms cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+      .swiper-slide-active .slide-img-bg {
+        transform: scale(1.06) translateY(-6px);
       }
       .slide-gradient {
         position: absolute;
         inset: 0;
         background: linear-gradient(
           180deg,
-          rgba(0, 0, 0, 0) 40%,
-          rgba(0, 0, 0, 0.45) 100%
+          transparent 28%,
+          rgba(8, 12, 18, 0.42) 100%
         );
+        transition: opacity 500ms;
+      }
+      .slide-gradient.ani {
+        background: linear-gradient(
+          120deg,
+          rgba(232, 108, 77, 0.14),
+          rgba(143, 193, 169, 0.08) 40%,
+          rgba(232, 108, 77, 0.06)
+        );
+        opacity: 0.93;
+        animation: gradientShift 14s linear infinite alternate;
+        mix-blend-mode: overlay;
+      }
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
       .slide-content {
         position: relative;
-        padding: 24px;
+        padding: 28px;
         color: #fff;
         z-index: 2;
+        max-width: 70%;
       }
       .slide-title {
-        font-size: 26px;
-        font-weight: 800;
-        margin-bottom: 6px;
+        font-size: 1.5rem;
+        margin: 0;
+        text-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
       }
       .slide-desc {
-        font-size: 14px;
         opacity: 0.95;
-        max-width: 700px;
-      }
-
-      /* Sections */
-      section.content-section {
-        max-width: 1200px;
-        margin: 36px auto;
-        padding: 12px;
-      }
+        margin-top: 6px;
+        font-size: 1rem;
+      } /* grid / cards */
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 18px;
+        margin-top: 12px;
       }
+      .grid-sm {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 12px;
+      } /*
+    Card Efeitos */
       .card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
         overflow: hidden;
+        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.2, 1),
+          box-shadow 0.4s cubic-bezier(0.2, 0.9, 0.2, 1),
+          opacity 0.7s cubic-bezier(0.2, 0.9, 0.2, 1),
+          filter 0.38s cubic-bezier(0.16, 0.68, 0.43, 0.99);
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(28px) scale(0.96) rotateZ(-2deg);
+        filter: blur(4px);
+        will-change: transform, opacity, box-shadow, filter;
       }
-      .card img {
-        height: 160px;
-        width: 350px;
-        object-fit: cover;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+      .card.reveal {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        animation: cardPop 0.55s cubic-bezier(0.17, 0.67, 0.83, 0.67) backwards;
       }
-
-      .card-body {
-        padding: 14px;
+      @keyframes cardPop {
+        0% {
+          opacity: 0;
+          transform: translateY(30px) scale(0.89) rotateZ(-3deg);
+          filter: blur(8px);
+        }
+        80% {
+          transform: translateY(-3px) scale(1.04) rotateZ(2deg);
+          filter: blur(1.2px);
+        }
+        100% {
+          opacity: 1;
+          filter: none;
+          transform: none;
+        }
       }
-      .card-body h3 {
-        font-size: 18px;
-        margin-bottom: 8px;
+      .card:hover,
+      .card:focus-within {
+        transform: scale(1.025) translateY(-7px) rotateZ(1.2deg);
+        box-shadow: 0 24px 54px rgba(15, 23, 35, 0.12), 0 1.5px 12px #e86c4d33;
+        filter: brightness(1.015) blur(0.2px);
+        z-index: 3;
       }
-      .card-body p {
-        font-size: 14px;
-        color: #555;
+      .card:active {
+        transform: scale(0.975) translateY(1px) rotateZ(-1deg);
       }
-
-      /* Forms */
-      .form {
-        background: #fff;
-        padding: 18px;
-        border-radius: 10px;
-        box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
-        max-width: 540px;
-        margin: 0 auto;
+      figure {
+        margin: 0;
       }
-      .form label {
-        display: block;
-        font-size: 13px;
-        margin-bottom: 6px;
-        color: #333;
-      }
-      .form input,
-      .form textarea,
-      .form button,
-      .form select {
+      figure img {
         width: 100%;
-        padding: 10px 12px;
-        margin-bottom: 12px;
-        border-radius: 8px;
-        border: 1px solid #e6e6e9;
-        font-size: 14px;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.55s cubic-bezier(0.24, 0.89, 0.36, 1.15),
+          filter 320ms cubic-bezier(0.2, 0.95, 0.3, 1.15), box-shadow 450ms;
+        box-shadow: 0 2.5px 7.5px #00000015;
+        filter: grayscale(0.04) contrast(92%);
       }
-      .form button {
-        background: #2b7cff;
-        color: #fff;
-        border: 0;
-        cursor: pointer;
-        font-weight: 700;
+      .card:hover figure img,
+      .card:focus-within figure img {
+        transform: scale(1.045) rotateZ(0.7deg);
+        filter: grayscale(0) brightness(1.13) saturate(1.19);
+        box-shadow: 0 8px 26px #e86c4d25;
       }
-
-      /* Footer */
-      footer {
+      figcaption {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        color: var(--muted);
+      }
+      .card-body {
         padding: 16px;
-        text-align: center;
-        color: #666;
-        font-size: 14px;
-        margin-top: 28px;
       }
-
-      /* Responsive */
-      @media (max-width: 900px) {
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 1.05rem;
+        color: var(--ink);
+      }
+      .card p {
+        color: var(--muted);
+        margin: 0;
+      }
+      .more {
+        display: none;
+        color: var(--muted);
+        margin-top: 12px;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+      .card.expanded .more {
+        display: block;
+      }
+      .card .ver-mais {
+        margin-top: 12px;
+      } /* Reveal animações */
+      .reveal-opacity {
+        opacity: 0;
+        transform: translateY(28px) scale(0.98);
+        transition: opacity 775ms cubic-bezier(0.18, 0.8, 0.34, 1),
+          transform 675ms cubic-bezier(0.23, 0.75, 0.38, 1);
+        will-change: opacity, transform;
+      }
+      .in-view {
+        opacity: 1;
+        transform: none;
+        animation: fadeUpSection 0.7s cubic-bezier(0.36, 0.75, 0.28, 1.01)
+          backwards;
+      }
+      @keyframes fadeUpSection {
+        from {
+          opacity: 0;
+          transform: translateY(28px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 720px;
+      }
+      label {
+        font-weight: 600;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(15, 23, 35, 0.06);
+        font-size: 1rem;
+        color: var(--ink);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 0.9)
+        );
+        transition: box-shadow var(--transition), transform var(--transition);
+      }
+      input:focus {
+        outline: none;
+        box-shadow: 0 6px 20px rgba(143, 193, 169, 0.12);
+        transform: translateY(-2px);
+      }
+      .form-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .form-feedback {
+        color: var(--muted);
+        font-size: 0.95rem;
+        min-height: 1.2em;
+      }
+      footer {
+        padding: 18px 0;
+        border-top: 1px solid rgba(16, 24, 32, 0.04);
+        margin-top: 20px;
+        background: transparent;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .footer-contacts a {
+        margin-left: 12px;
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .footer-contacts a:hover {
+        color: var(--accent);
+        text-shadow: 0 1px 4px #e86c4d43;
+      }
+      [role="status"] {
+        min-height: 1.2em;
+      }
+      .mobile-nav.open {
+        animation: slideDown 240ms var(--transition) both;
+      }
+      @keyframes slideDown {
+        from {
+          transform: translateY(-8px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @media (max-width: 980px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 660px) {
         .rb-menu {
           display: none;
         }
         .rb-menu-btn {
+          display: inline-block;
+        }
+        .mobile-nav {
           display: block;
-          margin-left: auto;
         }
-        .rb-header-container {
-          gap: 8px;
+        .mobile-nav[aria-hidden="true"] {
+          display: none;
         }
-      }
-
-      /* Mobile nav (open) */
-      .mobile-nav {
-        position: fixed;
-        inset: 72px 0 0 0;
-        background: #fff;
-        z-index: 60;
-        padding: 18px;
-        display: none;
-        overflow: auto;
-      }
-      .mobile-nav.open {
-        display: block;
-      }
-      .mobile-nav a {
-        display: block;
-        padding: 12px 8px;
-        border-bottom: 1px solid #f0f0f0;
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .grid-sm {
+          grid-template-columns: 1fr;
+        }
+        .welcome-box.container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .welcome-media {
+          width: 100%;
+          max-height: 260px;
+        }
+        .swiper {
+          height: 46vh;
+          min-height: 320px;
+        }
+        .slide-content {
+          max-width: 100%;
+        }
+        .content-section,
+        .carousel-section {
+          border-radius: 0.7em;
+          margin-bottom: 1em;
+          box-shadow: 0 2px 13px #0d17230f;
+        }
+      } /*---------
+    DARK MODE opcional ---------*/
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #181a1b;
+          --card: #202226;
+          --muted: #b2b2b7;
+          --accent: #e86c4d;
+          --accent-2: #8fc1a9;
+          --ink: #fff;
+          --glass: rgba(32, 38, 41, 0.82);
+          --shadow: 0 8px 24px rgba(32, 38, 41, 0.23);
+        }
+        body {
+          background: linear-gradient(180deg, var(--bg), #24262b);
+        }
+        .content-section,
+        .carousel-section {
+          background: rgba(32, 34, 39, 0.9);
+          box-shadow: 0 2px 22px 1.5px #000c1150;
+        }
+        input,
+        .btn-primary,
+        .btn-outline {
+          color: var(--ink);
+        }
       }
     </style>
   </head>
 
   <body>
-    <header>
-      <div class="rb-header-container">
-        <a href="#home" class="rb-logo"
-          ><img src="img/logo.png" alt="Logo Ribeirão Pires"
-        /></a>
-        <nav class="rb-menu" aria-label="Main navigation">
+    <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+    <header class="site-header" role="banner">
+      <div class="rb-header-container container">
+        <a href="#home" class="rb-logo" aria-label="Início — Ribeirão Pires">
+          <img
+            src="./img/logo-removebg-preview.png"
+            alt="Logo Ribeirão Pires"
+            width="50"
+            height="46"
+          />
+        </a>
+
+        <nav class="rb-menu" aria-label="Navegação principal">
           <a href="#home">Início</a>
           <a href="#pontos">Pontos Turísticos</a>
           <a href="#gastronomia">Gastronomia</a>
@@ -301,13 +757,22 @@
           <a href="#mapa">Mapa</a>
           <a href="#historia">História</a>
         </nav>
+
         <div class="rb-login">
-          <a href="#cadastro" class="rb-signin-btn">CADASTRE-SE</a>
+          <a href="login.html" class="rb-signin-btn">LOG IN</a>
         </div>
-        <button class="rb-menu-btn" aria-label="Menu" id="menuBtn">
-          &#9776;
+
+        <button
+          class="rb-menu-btn"
+          aria-label="Abrir menu"
+          id="menuBtn"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <span class="hamburger" aria-hidden="true">&#9776;</span>
         </button>
       </div>
+
       <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
         <a href="#home">Início</a>
         <a href="#pontos">Pontos Turísticos</a>
@@ -320,80 +785,119 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <!-- HOME / HERO -->
       <section id="home" class="welcome-section" aria-label="Bem-vindo">
-        <div class="welcome-box">
-          <h1>
-            <span class="welcome-main">Bem-vindo</span>
-            <span class="welcome-to">a</span>
-            <span class="welcome-city">Ribeirão Pires</span>
-          </h1>
-          <p class="welcome-desc">
-            Explore cultura, natureza e experiências únicas nesta cidade
-            incrível!
-          </p>
+        <div class="welcome-box container">
+          <div class="welcome-text reveal-opacity">
+            <h1>
+              <span class="welcome-main">Bem-vindo</span>
+              <span class="welcome-to">a</span>
+              <span class="welcome-city">Ribeirão Pires</span>
+            </h1>
+            <p class="welcome-desc">
+              Descubra cultura, natureza e sabores locais. Encontre roteiros,
+              eventos e dicas práticas para aproveitar a cidade.
+            </p>
+            <p class="hero-cta">
+              <a class="btn-primary" href="#pontos">Ver pontos turísticos</a>
+              <a class="btn-outline" href="#mapa">Ver mapa</a>
+            </p>
+          </div>
+
+          <div class="welcome-media" aria-hidden="true">
+            <img
+              src="img/prefeitura.jpeg"
+              alt="Panorâmica de Ribeirão Pires"
+              loading="lazy"
+              id="heroImg"
+            />
+          </div>
         </div>
       </section>
 
-      <!-- CAROUSEL -->
-      <section class="carousel-section" aria-label="Destaques">
-        <div class="swiper mySwiper">
+      <!-- CAROUSEL / Destaques -->
+      <section class="carousel-section content-section" aria-label="Destaques">
+        <div class="container">
+          <h2 class="section-title reveal-opacity">Destaques</h2>
+        </div>
+        <div class="swiper mySwiper" aria-roledescription="carousel">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <article class="swiper-slide" role="group" aria-label="Turismo">
               <img
                 class="slide-img-bg"
-                src="img/ribeiraopires.jpg"
-                alt="Turismo"
+                src="img/VILA_DO_DOCE.jpeg"
+                alt="Vista de Ribeirão Pires"
+                loading="lazy"
               />
-              <div class="slide-gradient"></div>
-              <div class="slide-content">
-                <div class="slide-title">Turismo</div>
-                <div class="slide-desc">
-                  Conheça os pontos turísticos e atrações imperdíveis de
-                  Ribeirão Pires.
-                </div>
+              <div class="slide-gradient ani" aria-hidden="true"></div>
+              <div class="slide-content reveal-opacity">
+                <h3 class="slide-title">Turismo</h3>
+                <p class="slide-desc">
+                  Conheça trilhas, mirantes e pontos históricos para incluir no
+                  seu roteiro.
+                </p>
               </div>
-            </div>
-            <div class="swiper-slide">
+            </article>
+
+            <article class="swiper-slide" role="group" aria-label="Gastronomia">
               <img
                 class="slide-img-bg"
                 src="img/restaurante.jpg"
-                alt="Gastronomia"
+                alt="Prato típico"
+                loading="lazy"
               />
-              <div class="slide-gradient"></div>
-              <div class="slide-content">
-                <div class="slide-title">Gastronomia</div>
-                <div class="slide-desc">
-                  Sabores extraordinários: viva experiências únicas.
-                </div>
+              <div class="slide-gradient ani" aria-hidden="true"></div>
+              <div class="slide-content reveal-opacity">
+                <h3 class="slide-title">Gastronomia</h3>
+                <p class="slide-desc">
+                  Sabores locais: doces, salgados e pratos tradicionais para
+                  experimentar.
+                </p>
               </div>
-            </div>
-            <div class="swiper-slide">
-              <img class="slide-img-bg" src="img/eventos.jpeg" alt="Eventos" />
-              <div class="slide-gradient"></div>
-              <div class="slide-content">
-                <div class="slide-title">Eventos</div>
-                <div class="slide-desc">
-                  Confira a agenda de festas, feiras e festivais de Ribeirão
-                  Pires.
-                </div>
+            </article>
+
+            <article class="swiper-slide" role="group" aria-label="Eventos">
+              <img
+                class="slide-img-bg"
+                src="img/eventos.jpeg"
+                alt="Evento ao ar livre"
+                loading="lazy"
+              />
+              <div class="slide-gradient ani" aria-hidden="true"></div>
+              <div class="slide-content reveal-opacity">
+                <h3 class="slide-title">Eventos</h3>
+                <p class="slide-desc">
+                  Festas, feiras e mostras culturais — confira a agenda local.
+                </p>
               </div>
-            </div>
-            <div class="swiper-slide">
-              <img class="slide-img-bg" src="img/mapa (2).png" alt="Mapa" />
-              <div class="slide-gradient"></div>
-              <div class="slide-content">
-                <div class="slide-title">Mapa</div>
-                <div class="slide-desc">
-                  Encontre roteiros e pontos de interesse em um mapa intuitivo.
-                </div>
+            </article>
+
+            <article class="swiper-slide" role="group" aria-label="Mapa">
+              <img
+                class="slide-img-bg"
+                src="img/mapa (2).png"
+                alt="Mapa"
+                loading="lazy"
+              />
+              <div class="slide-gradient ani" aria-hidden="true"></div>
+              <div class="slide-content reveal-opacity">
+                <h3 class="slide-title">Mapa</h3>
+                <p class="slide-desc">
+                  Roteiros e pontos de interesse organizados em um mapa
+                  interativo.
+                </p>
               </div>
-            </div>
+            </article>
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
+
+          <button class="swiper-button-next" aria-label="Próximo"></button>
+          <button class="swiper-button-prev" aria-label="Anterior"></button>
+          <div
+            class="swiper-pagination"
+            role="tablist"
+            aria-hidden="false"
+          ></div>
         </div>
       </section>
 
@@ -403,47 +907,151 @@
         class="content-section"
         aria-label="Pontos Turísticos"
       >
-        <h2 style="text-align: center; margin-bottom: 16px">
-          Pontos Turísticos
-        </h2>
-        <div class="grid">
-          <article class="card">
-            <img src="img/parque oriental.jpeg" alt="Parque oriental" />
-            <div class="card-body">
-              <h3>Parque oriental</h3>
-              <p>
-                O Parque Oriental Milton Marinho de Moraes é um espaço de lazer
-                e contemplação com temática japonesa em Ribeirão Pires, à beira
-                da Represa Billings. O Parque Oriental em Ribeirão Pires, com
-                entrada gratuita (terça a domingo, 8h às 17h), destaca-se pelo
-                Jardim Japonês/Zen, pela escultura do Dragão Kinryo e por ser o
-                ponto de embarque para a Torre de Miroku (passeio pago e
-                agendado).
+        <div class="container">
+          <h2 class="section-title reveal-opacity">Pontos Turísticos</h2>
+          <p class="lead reveal-opacity">
+            Lugares imperdíveis para incluir no seu roteiro.
+          </p>
+
+          <div class="grid" id="pontosGrid">
+            <article class="card">
+              <figure>
+                <img
+                  src="img/parque oriental.jpeg"
+                  alt="Lago e jardins do Parque Oriental"
+                  loading="lazy"
+                />
+                <figcaption>
+                  Parque Oriental — Jardim Japonês e Mirante
+                </figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Parque Oriental</h3>
+                <p>
+                  Espaço de lazer com temática japonesa à beira da Represa
+                  Billings. Ideal para caminhadas e piqueniques.
+                </p>
+                <button
+                  class="btn-outline ver-mais"
+                  aria-expanded="false"
+                  aria-controls="more-parque"
+                >
+                  Ver mais
+                </button>
+              </div>
+              <p class="more" id="more-parque" hidden>
+                Horário: geralmente aberto das 6h às 18h. Dica: leve água e
+                protetor solar para trilhas curtas; há áreas gramadas para
+                piquenique. Fica próximo a quiosques e costuma haver feira de
+                artesanato aos fins de semana — verifique a programação local.
               </p>
-            </div>
-          </article>
-          <article class="card">
-            <img src="img/torre.jpg" alt="Torre de Miroku" />
-            <div class="card-body">
-              <h3>Torre de Miroku</h3>
-              <p>
-                O maior templo japonês do Brasil. A visita à Torre é paga,
-                agendada (Sábados/Domingos/Feriados) e depende da navegabilidade
-                da Represa Billings.
+            </article>
+
+            <article class="card">
+              <figure>
+                <img src="img/torre.jpg" alt="Torre de Miroku" loading="lazy" />
+                <figcaption>Torre de Miroku — templo e mirante</figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Torre de Miroku</h3>
+                <p>
+                  Templo com arquitetura marcante e mirante — visitas geralmente
+                  agendadas.
+                </p>
+                <button
+                  class="btn-outline ver-mais"
+                  aria-expanded="false"
+                  aria-controls="more-torre"
+                >
+                  Ver mais
+                </button>
+              </div>
+              <p class="more" id="more-torre" hidden>
+                Observação: muitas visitas são agendadas — confira contatos do
+                templo para horários de visitação. O mirante oferece vista ampla
+                da represa e da cidade; recomenda-se ir no final da tarde para o
+                pôr do sol. Respeite as normas do espaço religioso.
               </p>
-            </div>
-          </article>
-          <article class="card">
-            <img src="img/VILA_DO_DOCE.jpeg" alt="Vila do doce" />
-            <div class="card-body">
-              <h3>Vila do doce</h3>
-              <p>
-                A Vila do Doce é um complexo gastronômico central em Ribeirão
-                Pires, com quiosques de doces, lanches e artesanato, ideal para
-                passeios em família.
+            </article>
+
+            <article class="card">
+              <figure>
+                <img
+                  src="img/VILA_DO_DOCE.jpeg"
+                  alt="Vila do Doce"
+                  loading="lazy"
+                />
+                <figcaption>Vila do Doce — quiosques e artesanato</figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Vila do Doce</h3>
+                <p>
+                  Complexo gastronômico com doces, lanches e lojas de artesanato
+                  — ótimo para famílias.
+                </p>
+                <button
+                  class="btn-outline ver-mais"
+                  aria-expanded="false"
+                  aria-controls="more-vila"
+                >
+                  Ver mais
+                </button>
+              </div>
+              <p class="more" id="more-vila" hidden>
+                Ideal para experimentar produtos locais e comprar lembranças. A
+                Vila tem opções para crianças e costuma ter apresentações
+                musicais aos sábados. Recomendado para visita à tarde; vagas de
+                estacionamento variam conforme eventos.
               </p>
-            </div>
-          </article>
+            </article>
+
+            <!-- Pontos turísticos extras (inicialmente escondidos) -->
+            <article class="card pontos-extra" style="display: none">
+              <figure>
+                <img
+                  src="img/mirante.jpg"
+                  alt="Mirante da Serra do Hermano"
+                  loading="lazy"
+                />
+                <figcaption>Mirante da Serra do Hermano</figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Mirante da Serra do Hermano</h3>
+                <p>
+                  Vista panorâmica da cidade, acesso por trilha leve. Ideal para
+                  fotos e contemplação da natureza.
+                </p>
+              </div>
+            </article>
+            <article class="card pontos-extra" style="display: none">
+              <figure>
+                <img
+                  src="img/represa.jpg"
+                  alt="Passeio de barco na Represa Billings"
+                  loading="lazy"
+                />
+                <figcaption>Passeio de Barco na Represa Billings</figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Passeio de Barco</h3>
+                <p>
+                  Passeios guiados pela represa, com paradas em pontos de
+                  interesse e áreas para banho e pesca.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div style="text-align: center; margin-top: 18px">
+            <button
+              class="btn-outline"
+              id="verMaisPontosBtn"
+              style="min-width: 180px"
+              aria-expanded="false"
+              aria-controls="pontosGrid"
+            >
+              Ver mais pontos turísticos
+            </button>
+          </div>
         </div>
       </section>
 
@@ -453,246 +1061,620 @@
         class="content-section"
         aria-label="Gastronomia"
       >
-        <h2 style="text-align: center; margin-bottom: 16px">Gastronomia</h2>
-        <div class="grid">
-          <article class="card">
-            <img src="img/restaurante.jpg" alt="Canoa Quebrada" />
-            <div class="card-body">
-              <h3>Canoa Quebrada</h3>
-              <p>
-                O Canoa Quebrada é um tradicional restaurante e pizza bar em
-                Ribeirão Pires/SP (Rua Miguel Prisco, 240, Centro). É um
-                estabelecimento com mais de 30 anos de história, famoso por seu
-                cardápio diversificado que inclui Pizzas, pratos com Peixes e
-                Camarões e opções de carnes. Segunda a Quinta-feira: Das 18h às
-                23h. E sextas-feiras e Sábados: Até a meia-noite (00h). O
-                contato principal é (11) 4828-6745 ou (11) 99623-2000..
+        <div class="container">
+          <h2 class="section-title reveal-opacity">Gastronomia</h2>
+          <p class="lead reveal-opacity">Os melhores sabores da região.</p>
+
+          <div class="grid" id="gastronomiaGrid">
+            <article class="card">
+              <figure>
+                <img
+                  src="img/restaurante.jpg"
+                  alt="Prato do restaurante Canoa Quebrada"
+                  loading="lazy"
+                />
+                <figcaption>Canoa Quebrada — pizzas e frutos do mar</figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Canoa Quebrada</h3>
+                <p>
+                  Restaurante tradicional com opções em frutos do mar e pizzas
+                  artesanais.
+                </p>
+                <button
+                  class="btn-outline ver-mais"
+                  aria-expanded="false"
+                  aria-controls="more-canoa"
+                >
+                  Ver mais
+                </button>
+              </div>
+              <p class="more" id="more-canoa" hidden>
+                Sugestão: experimente a pizza de camarão e as moquecas no fim de
+                semana. Ambiente familiar, aceita reservas para grupos. Horário:
+                normalmente das 12h às 23h — confirme antes de ir.
               </p>
-            </div>
-          </article>
-          <article class="card">
-            <img src="img/dcarvalhos.jpg" alt="D'Carvalhos " />
-            <div class="card-body">
-              <h3>D'Carvalhos Bar</h3>
-              <p>
-                Destaque para a culinária nordestina (Jabá, Baião de Dois,
-                Feijoada) em um ambiente de bar/restaurante. Funciona de Terça a
-                Domingo a partir das 11h/12h e fecha as 00.
+            </article>
+
+            <article class="card">
+              <figure>
+                <img
+                  src="img/dcarvalhos.jpg"
+                  alt="Prato nordestino no D'Carvalhos"
+                  loading="lazy"
+                />
+                <figcaption>D'Carvalhos — culinária nordestina</figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>D'Carvalhos Bar</h3>
+                <p>Pratos típicos nordestinos em ambiente descontraído.</p>
+                <button
+                  class="btn-outline ver-mais"
+                  aria-expanded="false"
+                  aria-controls="more-dcarvalhos"
+                >
+                  Ver mais
+                </button>
+              </div>
+              <p class="more" id="more-dcarvalhos" hidden>
+                Destaque para pratos como baião de dois e carne de sol. Música
+                ao vivo em datas específicas — confira agenda. Recomendável
+                provar as porções para dividir e experimentar mais sabores.
               </p>
-            </div>
-          </article>
-          <article class="card">
-            <img src="img/bardovado.png" alt="Bar do Vado" />
-            <div class="card-body">
-              <h3>Bar do Vado</h3>
-              <p>
-                O Bar do Vado é um estabelecimento popular em Ribeirão Pires.
-                Seu foco principal é a culinária de bar tradicional. É
-                recomendado entrar em contato pelo WhatsApp (11) 99002-7652 para
-                confirmar o horário de funcionamento, que é variável e focado
-                principalmente no período noturno e, em alguns dias, no almoço.
+            </article>
+
+            <article class="card">
+              <figure>
+                <img src="img/bardovado.png" alt="Bar do Vado" loading="lazy" />
+                <figcaption>Bar do Vado — ambiente popular</figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Bar do Vado</h3>
+                <p>
+                  Bar tradicional com petiscos e música — confirme horários
+                  antes de ir.
+                </p>
+                <button
+                  class="btn-outline ver-mais"
+                  aria-expanded="false"
+                  aria-controls="more-vado"
+                >
+                  Ver mais
+                </button>
+              </div>
+              <p class="more" id="more-vado" hidden>
+                Ambiente descontraído, bom para happy hour. Petiscos populares
+                incluem bolinhos e porções regionais. Horário e música ao vivo
+                podem variar — ligue antes se for para um evento específico.
               </p>
-            </div>
-          </article>
+            </article>
+
+            <!-- Restaurantes extras (inicialmente escondidos) -->
+            <article class="card gastronomia-extra" style="display: none">
+              <figure>
+                <img
+                  src="img/pizzaria.jpg"
+                  alt="Pizzaria da Vila"
+                  loading="lazy"
+                />
+                <figcaption>
+                  Pizzaria da Vila — pizzas artesanais no centro
+                </figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Pizzaria da Vila</h3>
+                <p>
+                  Grande variedade de pizzas, massas e ambiente acolhedor para
+                  família.
+                </p>
+              </div>
+            </article>
+            <article class="card gastronomia-extra" style="display: none">
+              <figure>
+                <img
+                  src="img/churrascaria.jpg"
+                  alt="Churrascaria Pires"
+                  loading="lazy"
+                />
+                <figcaption>
+                  Churrascaria Pires — rodízio e cortes especiais
+                </figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Churrascaria Pires</h3>
+                <p>
+                  Rodízio de carnes e acompanhamentos típicos, com espaço para
+                  crianças.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div style="text-align: center; margin-top: 18px">
+            <button
+              class="btn-outline"
+              id="verMaisGastronomiaBtn"
+              style="min-width: 180px"
+              aria-expanded="false"
+              aria-controls="gastronomiaGrid"
+            >
+              Ver mais restaurantes
+            </button>
+          </div>
         </div>
       </section>
 
       <!-- EVENTOS -->
       <section id="eventos" class="content-section" aria-label="Eventos">
-        <h2 style="text-align: center; margin-bottom: 16px">Eventos</h2>
-        <div class="grid">
-          <article class="card">
-            <div style="padding: 16px">
-              <h3>Festa da Cidade</h3>
-              <p>
-                O Festival do Chocolate de Ribeirão Pires é um grande evento
-                cultural e gastronômico que ocorre tipicamente durante o mês de
-                agosto. o festival oferece shows gratuitos de artistas
-                nacionais, apresentações culturais e uma vasta vila gastronômica
-                dedicada a pratos e inovações feitos com chocolate. A entrada
-                costuma ser solidária (com doação opcional de alimentos ou
-                ração).
-              </p>
-            </div>
-          </article>
-          <article class="card">
-            <div style="padding: 16px">
-              <h3>Feira Local</h3>
-              <p>
-                As feiras de Ribeirão Pires combinam artesanato, gastronomia e,
-                em eventos especiais, música ao vivo. A principal feira de
-                artesanato ocorre no Parque Oriental (Sex a Dom, 8h-16h).
-              </p>
-            </div>
-          </article>
+        <div class="container">
+          <h2 class="section-title reveal-opacity">Eventos</h2>
+          <p class="lead reveal-opacity">
+            Fique por dentro da programação local.
+          </p>
+
+          <div class="grid-sm">
+            <article class="card">
+              <div class="card-body">
+                <h3>Festival do Chocolate</h3>
+                <p>
+                  Evento cultural e gastronômico com vila do chocolate, shows e
+                  oficinas — normalmente em agosto.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-body">
+                <h3>Feira Local</h3>
+                <p>
+                  Artesanato e gastronomia no Parque Oriental com música ao vivo
+                  aos finais de semana.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
       <!-- MAPA -->
       <section id="mapa" class="content-section" aria-label="Mapa">
-        <h2 style="text-align: center; margin-bottom: 16px">Mapa</h2>
-        <div class="card" style="padding: 12px">
-          <!-- If you have an embeddable map, replace the iframe src -->
-          <iframe
-            src="https://www.google.com/maps/d/embed?mid=141ZqRT1Yx_iSgL_eFT9VjqFMRiipvqs&ehbc=2E312F"
-            style="width: 100%; height: 360px; border: 0; border-radius: 8px"
-          ></iframe>
+        <div class="container">
+          <h2 class="section-title reveal-opacity">Mapa</h2>
+          <div class="card map-card" style="padding: 12px">
+            <iframe
+              title="Mapa interativo de pontos em Ribeirão Pires"
+              src="https://www.google.com/maps/d/embed?mid=141ZqRT1Yx_iSgL_eFT9VjqFMRiipvqs&ehbc=2E312F"
+              style="width: 100%; height: 420px; border: 0; border-radius: 8px"
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </section>
 
       <!-- HISTÓRIA -->
       <section id="historia" class="content-section" aria-label="História">
-        <h2 style="text-align: center; margin-bottom: 16px">
-          História de Ribeirão Pires
-        </h2>
-        <div class="card" style="padding: 16px">
-          <p style="line-height: 1.6; color: #444">
-            📜 História de Ribeirão Pires Ribeirão Pires, uma cidade vibrante na
-            Região Metropolitana de São Paulo, possui uma história rica que
-            remonta aos tempos coloniais. Seu desenvolvimento está intimamente
-            ligado à exploração do interior paulista e, mais tarde, à chegada da
-            ferrovia. 🏞️ Primeiros Tempos e Origens O território que hoje
-            compreende Ribeirão Pires era originalmente habitado por povos
-            indígenas. A ocupação pelos colonizadores portugueses começou nos
-            séculos XVII e XVIII, com a abertura de caminhos ligando o litoral
-            ao planalto, como o Caminho do Mar.
-            <br />
-            A localidade recebeu seu nome em homenagem a uma das famílias
-            pioneiras da região, os Pires, que se estabeleceram nas margens de
-            um curso d'água, o Ribeirão Pires. Por muito tempo, a área foi uma
-            pequena parada ou povoado rural, dedicada principalmente à
-            agricultura de subsistência e ao fornecimento de lenha e carvão
-            vegetal para a crescente cidade de São Paulo.
-            <br /><br />
-            🚂 O Impulso da Ferrovia O verdadeiro marco para o crescimento e a
-            emancipação de Ribeirão Pires foi a construção da ferrovia São Paulo
-            Railway (SPR), inaugurada em 1867. A SPR, que ligava Santos a
-            Jundiaí, passava pelo atual território da cidade, e a instalação de
-            uma estação ferroviária na década de 1880 impulsionou o povoamento.
-            <br />
-            A estação ferroviária atraiu novos moradores e facilitou o
-            escoamento de produtos. A partir desse momento, Ribeirão Pires
-            deixou de ser apenas um lugarejo e começou a ganhar ares de núcleo
-            urbano.
-            <br /><br />
-            🏗️ Desenvolvimento e Emancipação Com a chegada de imigrantes,
-            especialmente italianos, no final do século XIX e início do século
-            XX, a economia local se diversificou. Indústrias modestas começaram
-            a surgir, e o crescimento populacional levou à organização social e
-            política.
-            <br />
-            Ribeirão Pires pertencia, inicialmente, a Santo André (antigo
-            município de São Bernardo). No entanto, o desejo de autonomia e a
-            distância da sede municipal motivaram um forte movimento
-            emancipacionista.
-            <br />
-            1944: O distrito de Ribeirão Pires é criado, desmembrando-se de
-            Santo André.
-            <br />
-            1953: A cidade conquista sua emancipação político-administrativa,
-            tornando-se um município independente. O aniversário da cidade é
-            comemorado em 19 de março, data da instalação do município.
-            <br /><br />
-            💎 A Estância Turística e o Presente Com seu clima ameno e sua área
-            em grande parte preservada da Mata Atlântica, Ribeirão Pires foi
-            elevada à categoria de Estância Turística em 1998. Este título
-            reconheceu seu potencial turístico, especialmente em torno da
-            Represa Billings e do Mirante Santo Antônio.
-            <br />
-            Hoje, Ribeirão Pires é conhecida por manter um equilíbrio entre o
-            desenvolvimento urbano e a preservação ambiental, oferecendo
-            qualidade de vida aos seus cidadãos e atraindo visitantes
-            interessados em ecoturismo e em sua rica história.
-          </p>
+        <div class="container">
+          <h2 class="section-title reveal-opacity">
+            História de Ribeirão Pires
+          </h2>
+          <div class="card" style="padding: 16px">
+            <p style="line-height: 1.6; color: #444">
+              Ribeirão Pires possui uma história rica que remonta aos tempos
+              coloniais e evoluiu até se tornar uma referência regional em
+              cultura, lazer e gastronomia.
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- CADASTRO -->
-      <section id="cadastro" class="content-section" aria-label="Cadastro">
-        <h2 style="text-align: center; margin-bottom: 16px">Cadastre-se</h2>
-        <form class="form" id="cadastroForm">
-          <label for="nome">Nome</label>
-          <input id="nome" name="nome" type="text" required />
-          <label for="email">E-mail</label>
-          <input id="email" name="email" type="email" required />
-          <label for="senha">Senha</label>
-          <input id="senha" name="senha" type="password" required />
-          <button type="submit">Criar Conta</button>
-        </form>
-      </section>
-
-      <!-- LOGIN -->
-      <section id="login" class="content-section" aria-label="Login">
-        <h2 style="text-align: center; margin-bottom: 16px">Entrar</h2>
-        <form class="form" id="loginForm">
-          <label for="lemail">E-mail</label>
-          <input id="lemail" name="lemail" type="email" required />
-          <label for="lsenha">Senha</label>
-          <input id="lsenha" name="lsenha" type="password" required />
-          <button type="submit">Entrar</button>
-        </form>
+      <!-- NEWSLETTER -->
+      <section id="newsletter" class="content-section" aria-label="Newsletter">
+        <div class="container">
+          <h2 class="section-title reveal-opacity">Receba novidades</h2>
+          <form id="newsletterForm" class="form" novalidate>
+            <label for="newsletterEmail">E-mail</label>
+            <input id="newsletterEmail" type="email" required />
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Inscrever</button>
+              <div
+                id="newsletterFeedback"
+                class="form-feedback"
+                role="status"
+                aria-live="polite"
+              ></div>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
 
     <footer>
-      © <span id="ano"></span> Ribeirão Pires — Conteúdo reunido em uma OnePage
+      <div class="footer-inner">
+        <div>
+          © <span id="ano"></span> Ribeirão Pires — Conteúdo reunido em uma
+          OnePage
+        </div>
+        <div class="footer-contacts">
+          <a
+            href="mailto:contato@seusite.exemplo"
+            aria-label="E-mail de contato"
+            >contato@seusite.exemplo</a
+          >
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            >Facebook</a
+          >
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            >Instagram</a
+          >
+        </div>
+      </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Swiper (CDN) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"
+      defer
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"
+      defer
+    ></script>
     <script>
-      // Initialize Swiper
-      const swiper = new Swiper(".mySwiper", {
-        loop: true,
-        autoplay: { delay: 4500, disableOnInteraction: false },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
-
-      // Mobile menu toggle
-      const menuBtn = document.getElementById("menuBtn");
-      const mobileNav = document.getElementById("mobileNav");
-      menuBtn.addEventListener("click", () => {
-        const open = mobileNav.classList.toggle("open");
-        mobileNav.setAttribute("aria-hidden", !open);
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((a) => {
-        a.addEventListener("click", (e) => {
-          const href = a.getAttribute("href");
-          if (href.length > 1) {
-            e.preventDefault();
-            const el = document.querySelector(href);
-            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-            mobileNav.classList.remove("open");
+      document.addEventListener("DOMContentLoaded", function () {
+        // ------ Swiper (Carrossel) ------
+        function initSwiper() {
+          try {
+            const swiper = new Swiper(".mySwiper", {
+              loop: true,
+              speed: 900,
+              autoplay: { delay: 5200, disableOnInteraction: false },
+              effect: "fade",
+              fadeEffect: { crossFade: true },
+              pagination: { el: ".swiper-pagination", clickable: true },
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              keyboard: { enabled: true, onlyInViewport: true },
+              a11y: {
+                enabled: true,
+                prevSlideMessage: "Slide anterior",
+                nextSlideMessage: "Próximo slide",
+              },
+              watchSlidesProgress: true,
+              on: {
+                slideChange: () => {
+                  document.querySelectorAll(".slide-content").forEach((el) => {
+                    el.style.transform = "translateY(8px)";
+                    el.style.opacity = "0.9";
+                    setTimeout(() => {
+                      el.style.transform = "";
+                      el.style.opacity = "";
+                    }, 420);
+                  });
+                },
+              },
+            });
+            const s = document.querySelector(".swiper");
+            if (s) {
+              s.addEventListener("mousedown", () =>
+                s.classList.add("grabbing")
+              );
+              s.addEventListener("mouseup", () =>
+                s.classList.remove("grabbing")
+              );
+            }
+          } catch (err) {
+            console.warn("Swiper init falhou", err);
           }
-        });
-      });
+        }
+        if (window.Swiper) initSwiper();
+        else window.addEventListener("load", initSwiper);
 
-      // Simple forms handlers (placeholder: adapt to backend)
-      document
-        .getElementById("cadastroForm")
-        .addEventListener("submit", (e) => {
-          e.preventDefault();
-          alert(
-            "Formulário de cadastro enviado (substitua por integração real)."
+        // ------ MENU Responsivo ------
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileNav = document.getElementById("mobileNav");
+        if (menuBtn && mobileNav) {
+          menuBtn.addEventListener("click", () => {
+            const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+            menuBtn.setAttribute("aria-expanded", String(!expanded));
+            mobileNav.setAttribute("aria-hidden", String(expanded));
+            mobileNav.classList.toggle("open");
+          });
+        }
+
+        // ------ Header sticky com sombra ------
+        const header = document.querySelector(".site-header");
+        function onScrollHeader() {
+          if (window.scrollY > 24) header.classList.add("scrolled");
+          else header.classList.remove("scrolled");
+        }
+        window.addEventListener("scroll", onScrollHeader, { passive: true });
+        onScrollHeader();
+
+        // ------ Smooth scroll para anchors ------
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (!href || href === "#") return;
+            const id = href.slice(1);
+            const target = document.getElementById(id);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+              if (mobileNav && mobileNav.classList.contains("open")) {
+                mobileNav.classList.remove("open");
+                mobileNav.setAttribute("aria-hidden", "true");
+                if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+              }
+            }
+          });
+        });
+
+        // ------ Animações de reveal (seções/cards) ------
+        const revealItems = document.querySelectorAll(".reveal-opacity, .card");
+        const revealObserver = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry, idx) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  if (entry.target.classList.contains("card"))
+                    entry.target.classList.add("reveal");
+                  else entry.target.classList.add("in-view");
+                  obs.unobserve(entry.target);
+                }, 75 * idx);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        revealItems.forEach((item) => revealObserver.observe(item));
+
+        // ------ Parallax no hero da home ------
+        const heroImg = document.getElementById("heroImg");
+        if (heroImg) {
+          const parent = heroImg.closest(".welcome-media");
+          let rect = parent.getBoundingClientRect();
+          parent.addEventListener("mousemove", (e) => {
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            const maxTranslate = 12;
+            heroImg.style.transform = `translate3d(${x * maxTranslate}px, ${
+              y * maxTranslate
+            }px, 0) scale(1.01)`;
+          });
+          parent.addEventListener("mouseleave", () => {
+            heroImg.style.transform = "";
+          });
+          window.addEventListener(
+            "resize",
+            () => (rect = parent.getBoundingClientRect())
           );
-          e.target.reset();
-        });
-      document.getElementById("loginForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("Tentativa de login (substitua por integração real).");
-        e.target.reset();
-      });
+        }
 
-      // Dynamic year
-      document.getElementById("ano").textContent = new Date().getFullYear();
+        // ------ Parallax nos slides ------
+        document.querySelectorAll(".swiper-slide").forEach((slide) => {
+          slide.addEventListener("mousemove", (e) => {
+            const img = slide.querySelector(".slide-img-bg");
+            if (!img) return;
+            const rect = slide.getBoundingClientRect();
+            const px = (e.clientX - rect.left) / rect.width - 0.5;
+            const py = (e.clientY - rect.top) / rect.height - 0.5;
+            img.style.transform = `scale(1.06) translate3d(${px * 10}px, ${
+              py * 10
+            }px, 0)`;
+          });
+          slide.addEventListener("mouseleave", () => {
+            const img = slide.querySelector(".slide-img-bg");
+            if (!img) return;
+            img.style.transform = "";
+          });
+        });
+
+        // ------ Botão "ver mais" para pontos ------
+        const verMaisPontosBtn = document.getElementById("verMaisPontosBtn");
+        if (verMaisPontosBtn) {
+          verMaisPontosBtn.addEventListener("click", function () {
+            const extras = document.querySelectorAll(".pontos-extra");
+            const expanded =
+              verMaisPontosBtn.getAttribute("aria-expanded") === "true";
+            if (!expanded) {
+              extras.forEach((e) => (e.style.display = ""));
+              verMaisPontosBtn.textContent = "Ver menos";
+              verMaisPontosBtn.setAttribute("aria-expanded", "true");
+            } else {
+              extras.forEach((e) => (e.style.display = "none"));
+              verMaisPontosBtn.textContent = "Ver mais pontos turísticos";
+              verMaisPontosBtn.setAttribute("aria-expanded", "false");
+              const pontosSection = document.getElementById("pontos");
+              if (pontosSection)
+                pontosSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+            }
+          });
+        }
+
+        // ------ Botão "ver mais" para gastronomia ------
+        const verMaisGastronomiaBtn = document.getElementById(
+          "verMaisGastronomiaBtn"
+        );
+        if (verMaisGastronomiaBtn) {
+          verMaisGastronomiaBtn.addEventListener("click", function () {
+            const extras = document.querySelectorAll(".gastronomia-extra");
+            const expanded =
+              verMaisGastronomiaBtn.getAttribute("aria-expanded") === "true";
+            if (!expanded) {
+              extras.forEach((e) => (e.style.display = ""));
+              verMaisGastronomiaBtn.textContent = "Ver menos";
+              verMaisGastronomiaBtn.setAttribute("aria-expanded", "true");
+            } else {
+              extras.forEach((e) => (e.style.display = "none"));
+              verMaisGastronomiaBtn.textContent = "Ver mais restaurantes";
+              verMaisGastronomiaBtn.setAttribute("aria-expanded", "false");
+              const gasSection = document.getElementById("gastronomia");
+              if (gasSection)
+                gasSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+            }
+          });
+        }
+
+        // ------ Botões "ver mais" nos cards ------
+        const verMaisButtons = document.querySelectorAll(".ver-mais");
+        verMaisButtons.forEach((btn) => {
+          const targetId = btn.getAttribute("aria-controls");
+          const target =
+            (targetId && document.getElementById(targetId)) ||
+            btn.parentElement.nextElementSibling;
+          if (!target) return;
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const card = btn.closest(".card");
+            const expanded = btn.getAttribute("aria-expanded") === "true";
+            if (expanded) {
+              btn.setAttribute("aria-expanded", "false");
+              btn.textContent = "Ver mais";
+              if (target.hasAttribute("hidden"))
+                target.setAttribute("hidden", "");
+              else target.style.display = "none";
+              if (card) card.classList.remove("expanded");
+            } else {
+              btn.setAttribute("aria-expanded", "true");
+              btn.textContent = "Ver menos";
+              if (target.hasAttribute("hidden"))
+                target.removeAttribute("hidden");
+              else target.style.display = "";
+              if (card) card.classList.add("expanded");
+              target.setAttribute("tabindex", "-1");
+              setTimeout(() => target.removeAttribute("tabindex"), 1000);
+            }
+          });
+        });
+
+        // ------ Ano dinâmico ------
+        const ano = document.getElementById("ano");
+        if (ano) ano.textContent = new Date().getFullYear();
+      });
+    </script>
+
+    <!-- SCRIPT UNIVERSAL DE FORMULÁRIOS -->
+    <script>
+      (function () {
+        // Utilitário: carregar/salvar usuários
+        function getUsuarios() {
+          return JSON.parse(localStorage.getItem("usuariosRP")) || [];
+        }
+        function setUsuarios(users) {
+          localStorage.setItem("usuariosRP", JSON.stringify(users));
+        }
+        function emailExiste(email) {
+          const users = getUsuarios();
+          return users.some(
+            (u) => u.email.toLowerCase() === email.toLowerCase()
+          );
+        }
+        function checarUsuario(email, senha) {
+          const users = getUsuarios();
+          return users.find(
+            (u) =>
+              u.email.toLowerCase() === email.toLowerCase() && u.senha === senha
+          );
+        }
+
+        // ---------- CADASTRO ----------
+        const cadastroForm = document.getElementById("cadastroForm");
+        if (cadastroForm) {
+          cadastroForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const nome = document.getElementById("cnome").value.trim();
+            const email = document.getElementById("cemail").value.trim();
+            const senha = document.getElementById("csenha").value;
+            const fb = document.getElementById("cadastroFeedback");
+            fb.style.color = "#c0392b";
+            if (!nome || !email || !senha) {
+              fb.textContent = "Preencha todos os campos.";
+              return;
+            }
+            if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+              fb.textContent = "Digite um e-mail válido.";
+              return;
+            }
+            if (senha.length < 6) {
+              fb.textContent = "A senha deve ter pelo menos 6 caracteres.";
+              return;
+            }
+            if (emailExiste(email)) {
+              fb.textContent = "Este e-mail já está cadastrado.";
+              return;
+            }
+            const users = getUsuarios();
+            users.push({ nome, email, senha });
+            setUsuarios(users);
+            fb.style.color = "#2a9d53";
+            fb.textContent = "Cadastro realizado com sucesso!";
+            cadastroForm.reset();
+            setTimeout(() => (fb.textContent = ""), 4000);
+          });
+        }
+
+        // ---------- LOGIN ----------
+        const loginForm = document.getElementById("loginForm");
+        if (loginForm) {
+          loginForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = document.getElementById("lemail").value.trim();
+            const senha = document.getElementById("lsenha").value;
+            const fb = document.getElementById("loginFeedback");
+            fb.style.color = "#c0392b";
+            if (!email || !senha) {
+              fb.textContent = "Por favor, preencha ambos os campos.";
+              return;
+            }
+            if (!checarUsuario(email, senha)) {
+              fb.textContent = "E-mail ou senha incorretos. Tente novamente.";
+              return;
+            }
+            fb.style.color = "#2a9d53";
+            fb.textContent = "Login realizado com sucesso! Redirecionando...";
+            setTimeout(function () {
+              window.location.href = "index.html";
+            }, 1200);
+          });
+        }
+
+        // ---------- NEWSLETTER ----------
+        const newsletterForm = document.getElementById("newsletterForm");
+        if (newsletterForm) {
+          newsletterForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = document
+              .getElementById("newsletterEmail")
+              .value.trim();
+            const fb = document.getElementById("newsletterFeedback");
+            fb.style.color = "#c0392b";
+            if (!email) {
+              fb.textContent = "Digite o e-mail.";
+              return;
+            }
+            if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+              fb.textContent = "Digite um e-mail válido.";
+              return;
+            }
+            if (!emailExiste(email)) {
+              fb.textContent = "E-mail não cadastrado. Cadastre-se primeiro.";
+              return;
+            }
+            fb.style.color = "#2a9d53";
+            fb.textContent = "Obrigado! Você receberá novidades em breve.";
+            newsletterForm.reset();
+            setTimeout(() => (fb.textContent = ""), 4000);
+          });
+        }
+      })();
     </script>
   </body>
 </html>

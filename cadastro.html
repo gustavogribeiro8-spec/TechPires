@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastre-se — Ribeirão Pires Turismo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFF8EE" />
+    <link rel="icon" href="img/logo-removebg-preview.ico" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;700&display=swap" />
+    <style>
+      body {
+        background: #fff8ee;
+        font-family: "Poppins", "Nunito", system-ui, sans-serif;
+        color: #0f1723;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cadastro-container {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(15, 23, 35, 0.08);
+        padding: 32px 26px 28px 26px;
+        width: 100%;
+        max-width: 380px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .cadastro-logo {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .cadastro-container h2 {
+        margin: 0 0 22px 0;
+        text-align: center;
+        font-weight: 700;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      label {
+        font-weight: 600;
+        color: #6b6f76;
+        font-size: 0.96rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(15, 23, 35, 0.06);
+        font-size: 1rem;
+        color: #0f1723;
+        background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.9));
+        transition: box-shadow 0.3s;
+      }
+      input:focus {
+        outline: none;
+        box-shadow: 0 6px 20px #8fc1a920;
+      }
+      .btn-primary {
+        background: linear-gradient(92deg,#e86c4d,#ff965d 80%);
+        color: #fff;
+        padding: 11px 20px;
+        border-radius: 12px;
+        border: 0;
+        font-weight: 800;
+        font-size: 1.07em;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        margin-top: 6px;
+        transition: filter 0.2s, transform 0.2s;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.10);
+        transform: scale(1.03);
+      }
+      .form-feedback {
+        min-height: 1.2em;
+        font-size: 0.96em;
+        margin-top: 1px;
+        color: #c0392b;
+        text-align: center;
+      }
+      .voltar {
+        text-align: center;
+        margin-top: 14px;
+      }
+      .voltar a {
+        color: #e86c4d;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1em;
+        transition: color 0.18s;
+      }
+      .voltar a:hover { color:#0f1723;}
+    </style>
+  </head>
+  <body>
+    <div class="cadastro-container">
+      <div class="cadastro-logo">
+        <img src="img/logo-removebg-preview.png" width="46" height="40" alt="Logo Ribeirão Pires" />
+      </div>
+      <h2>Cadastre-se</h2>
+      <form id="cadastroForm" class="form" autocomplete="on" novalidate>
+        <label for="cnome">Nome</label>
+        <input id="cnome" name="cnome" type="text" required />
+        <label for="cemail">E-mail</label>
+        <input id="cemail" name="cemail" type="email" required />
+        <label for="csenha">Senha</label>
+        <input id="csenha" name="csenha" type="password" required minlength="6" />
+        <button type="submit" class="btn-primary">Cadastrar</button>
+        <div id="cadastroFeedback" class="form-feedback" role="status" aria-live="polite"></div>
+      </form>
+      <div class="voltar">
+        <a href="login.html">&larr; Já tem conta? Entrar</a>
+        <br>
+        <a href="index.html">&larr; Voltar ao início</a>
+      </div>
+    </div>
+    <script>
+      (function () {
+        function getUsuarios() {
+          return JSON.parse(localStorage.getItem("usuariosRP")) || [];
+        }
+        function setUsuarios(users) {
+          localStorage.setItem("usuariosRP", JSON.stringify(users));
+        }
+        function emailExiste(email) {
+          const users = getUsuarios();
+          return users.some((u) => u.email.toLowerCase() === email.toLowerCase());
+        }
+
+        // --- Cadastro
+        const cadastroForm = document.getElementById("cadastroForm");
+        if (cadastroForm) {
+          cadastroForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const nome = document.getElementById("cnome").value.trim();
+            const email = document.getElementById("cemail").value.trim();
+            const senha = document.getElementById("csenha").value;
+            const fb = document.getElementById("cadastroFeedback");
+            fb.style.color = "#c0392b";
+            if (!nome || !email || !senha) {
+              fb.textContent = "Preencha todos os campos.";
+              return;
+            }
+            if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+              fb.textContent = "Digite um e-mail válido.";
+              return;
+            }
+            if (senha.length < 6) {
+              fb.textContent = "A senha deve ter pelo menos 6 caracteres.";
+              return;
+            }
+            if (emailExiste(email)) {
+              fb.textContent = "Este e-mail já está cadastrado.";
+              return;
+            }
+            const users = getUsuarios();
+            users.push({ nome, email, senha });
+            setUsuarios(users);
+            fb.style.color = "#2a9d53";
+            fb.textContent = "Cadastro realizado com sucesso! Redirecionando para login...";
+            cadastroForm.reset();
+            setTimeout(() => {
+              fb.textContent = "";
+              window.location.href = "login.html";
+            }, 2000);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
