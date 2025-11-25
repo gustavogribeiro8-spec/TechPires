@@ -707,31 +707,142 @@
         }
       } /*---------
     DARK MODE opcional ---------*/
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #181a1b;
-          --card: #202226;
-          --muted: #b2b2b7;
-          --accent: #e86c4d;
-          --accent-2: #8fc1a9;
-          --ink: #fff;
-          --glass: rgba(32, 38, 41, 0.82);
-          --shadow: 0 8px 24px rgba(32, 38, 41, 0.23);
-        }
-        body {
-          background: linear-gradient(180deg, var(--bg), #24262b);
-        }
-        .content-section,
-        .carousel-section {
-          background: rgba(32, 34, 39, 0.9);
-          box-shadow: 0 2px 22px 1.5px #000c1150;
-        }
-        input,
-        .btn-primary,
-        .btn-outline {
-          color: var(--ink);
-        }
-      }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #181a1e;
+    --card: #23242b;
+    --muted: #a6adc9;
+    --accent: #ef9165;
+    --accent-2: #4bc496;
+    --ink: #f6f5fa; /* branco puro visual para títulos */
+    --glass: rgba(34, 36, 41, 0.90);
+    --shadow: 0 8px 24px #11152e99;
+  }
+  body {
+    background: linear-gradient(180deg, var(--bg) 70%, #181a1e 100%);
+    color: #d3d6e9; /* texto principal um cinza claro, não puro */
+  }
+  .content-section,
+  .carousel-section {
+    background: rgba(35, 36, 44, 0.96);
+    box-shadow: 0 2px 26px 1.5px #000c1130;
+    color: #c5cae9;
+  }
+  .site-header,
+  .rb-header-container,
+  .mobile-nav,
+  .footer-inner {
+    background: rgba(32, 34, 39, 0.90) !important;
+    color: #e0e3f5 !important;
+  }
+  .rb-logo img { filter: brightness(0.95) contrast(1.1);}
+  .rb-menu a,
+  .mobile-nav a {
+    color: #85a4e8 !important; /* azul leve para links principais */
+    text-shadow: 0 1px 3px #20233a70;
+  }
+  .rb-menu a:hover,
+  .rb-menu a:focus,
+  .mobile-nav a:hover {
+    color: var(--accent) !important;
+    background: rgba(239,145,101,0.10) !important;
+    text-shadow: 0 1px 7px #ef916585;
+  }
+  .rb-signin-btn,
+  .btn-primary,
+  .btn-outline {
+    color: #fff !important;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 7px #17172240;
+  }
+  .btn-primary {
+    background: linear-gradient(92deg,#ef9165 45%,#e86c4d 100%);
+    box-shadow: 0 4px 32px #e86c4d44;
+    border: none;
+    color: #181a1b !important;
+    text-shadow: none;
+  }
+  .btn-outline {
+    border: 1.5px solid var(--accent-2);
+    background: linear-gradient(93deg, #23242b 94%, #26283a 100%);
+    color: var(--accent-2);
+  }
+  .btn-primary:hover, .btn-primary:focus,
+  .btn-outline:hover, .btn-outline:focus {
+    filter: brightness(1.09);
+    color: #fff !important;
+    background: linear-gradient(92deg,#ef9165 80%,#e86c4d 120%) !important;
+    box-shadow: 0 10px 38px #8fc1a922, 0 3px 14px #ef916578;
+  }
+  .card,
+  .map-card {
+    background: var(--glass) !important;
+    color: #e6e6f2 !important;
+    box-shadow: 0 6px 32px #0000003b;
+  }
+  .card h3,
+  .section-title {
+    color: var(--ink) !important;
+    text-shadow: 0 2px 8px #0e141f55;
+    letter-spacing: 0.015em;
+  }
+  .form-feedback,
+  .footer-inner,
+  .grid-sm .card p,
+  .card p,
+  .lead,
+  label {
+    color: #b0b8c7 !important;
+    font-weight: 500;
+  }
+  figcaption {
+    color: #748499 !important;
+  }
+  input,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    background: linear-gradient(180deg, #20222b 70%, #25293b 100%);
+    color: #fff;
+    border: 1px solid #35375c;
+    caret-color: #ef9165;
+  }
+  input::placeholder {
+    color: #8b97b3;
+    opacity: 0.8;
+  }
+  input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px #ef916570;
+    color: #fff;
+    background: #23242c;
+  }
+  /* Swiper/Slides */
+  .swpier,
+  .swiper-slide,
+  .slide-content {
+    background: transparent !important;
+    color: #f4f5fa !important;
+  }
+  .slide-title,
+  .slide-content h3 { color: #fffbe7 !important;}
+  .slide-desc { color: #dbeaff !important; opacity: .93;}
+  .card .ver-mais {
+    color: #ef9165 !important;
+    font-weight: 700;
+    text-shadow: 0 2px 9px #27273540;
+  }
+  /* Footer links */
+  .footer-contacts a {
+    color: #c3c7cb !important;
+  }
+  .footer-contacts a:hover {
+    color: var(--accent) !important;
+    text-shadow: 0 1px 4px #ef916540;
+  }
+}
+      
     </style>
   </head>
 
@@ -807,7 +918,7 @@
 
           <div class="welcome-media" aria-hidden="true">
             <img
-              src="img/prefeitura.jpeg"
+              src="./img/Fachada-CHL-1-1024x768.jpeg"
               alt="Panorâmica de Ribeirão Pires"
               loading="lazy"
               id="heroImg"
@@ -826,8 +937,8 @@
             <article class="swiper-slide" role="group" aria-label="Turismo">
               <img
                 class="slide-img-bg"
-                src="img/VILA_DO_DOCE.jpeg"
-                alt="Vista de Ribeirão Pires"
+                src="./img/vila_do_doce.png"
+                alt="Vista de Ribeirão Pires" 
                 loading="lazy"
               />
               <div class="slide-gradient ani" aria-hidden="true"></div>
@@ -843,7 +954,7 @@
             <article class="swiper-slide" role="group" aria-label="Gastronomia">
               <img
                 class="slide-img-bg"
-                src="img/restaurante.jpg"
+                src="./img/canoa quebrada.jpg"
                 alt="Prato típico"
                 loading="lazy"
               />
@@ -860,7 +971,7 @@
             <article class="swiper-slide" role="group" aria-label="Eventos">
               <img
                 class="slide-img-bg"
-                src="img/eventos.jpeg"
+                src="./img/FESTIVAL_DO_CHOCOLATE_RIBEIRAO_PIRES_ACIARP.jpeg"
                 alt="Evento ao ar livre"
                 loading="lazy"
               />
@@ -876,7 +987,7 @@
             <article class="swiper-slide" role="group" aria-label="Mapa">
               <img
                 class="slide-img-bg"
-                src="img/mapa (2).png"
+                src="./img/mapa.png"
                 alt="Mapa"
                 loading="lazy"
               />
