@@ -705,144 +705,7 @@
           margin-bottom: 1em;
           box-shadow: 0 2px 13px #0d17230f;
         }
-      } /*---------
-    DARK MODE opcional ---------*/
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #181a1e;
-    --card: #23242b;
-    --muted: #a6adc9;
-    --accent: #ef9165;
-    --accent-2: #4bc496;
-    --ink: #f6f5fa; /* branco puro visual para títulos */
-    --glass: rgba(34, 36, 41, 0.90);
-    --shadow: 0 8px 24px #11152e99;
-  }
-  body {
-    background: linear-gradient(180deg, var(--bg) 70%, #181a1e 100%);
-    color: #d3d6e9; /* texto principal um cinza claro, não puro */
-  }
-  .content-section,
-  .carousel-section {
-    background: rgba(35, 36, 44, 0.96);
-    box-shadow: 0 2px 26px 1.5px #000c1130;
-    color: #c5cae9;
-  }
-  .site-header,
-  .rb-header-container,
-  .mobile-nav,
-  .footer-inner {
-    background: rgba(32, 34, 39, 0.90) !important;
-    color: #e0e3f5 !important;
-  }
-  .rb-logo img { filter: brightness(0.95) contrast(1.1);}
-  .rb-menu a,
-  .mobile-nav a {
-    color: #85a4e8 !important; /* azul leve para links principais */
-    text-shadow: 0 1px 3px #20233a70;
-  }
-  .rb-menu a:hover,
-  .rb-menu a:focus,
-  .mobile-nav a:hover {
-    color: var(--accent) !important;
-    background: rgba(239,145,101,0.10) !important;
-    text-shadow: 0 1px 7px #ef916585;
-  }
-  .rb-signin-btn,
-  .btn-primary,
-  .btn-outline {
-    color: #fff !important;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    text-shadow: 0 2px 7px #17172240;
-  }
-  .btn-primary {
-    background: linear-gradient(92deg,#ef9165 45%,#e86c4d 100%);
-    box-shadow: 0 4px 32px #e86c4d44;
-    border: none;
-    color: #181a1b !important;
-    text-shadow: none;
-  }
-  .btn-outline {
-    border: 1.5px solid var(--accent-2);
-    background: linear-gradient(93deg, #23242b 94%, #26283a 100%);
-    color: var(--accent-2);
-  }
-  .btn-primary:hover, .btn-primary:focus,
-  .btn-outline:hover, .btn-outline:focus {
-    filter: brightness(1.09);
-    color: #fff !important;
-    background: linear-gradient(92deg,#ef9165 80%,#e86c4d 120%) !important;
-    box-shadow: 0 10px 38px #8fc1a922, 0 3px 14px #ef916578;
-  }
-  .card,
-  .map-card {
-    background: var(--glass) !important;
-    color: #e6e6f2 !important;
-    box-shadow: 0 6px 32px #0000003b;
-  }
-  .card h3,
-  .section-title {
-    color: var(--ink) !important;
-    text-shadow: 0 2px 8px #0e141f55;
-    letter-spacing: 0.015em;
-  }
-  .form-feedback,
-  .footer-inner,
-  .grid-sm .card p,
-  .card p,
-  .lead,
-  label {
-    color: #b0b8c7 !important;
-    font-weight: 500;
-  }
-  figcaption {
-    color: #748499 !important;
-  }
-  input,
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    background: linear-gradient(180deg, #20222b 70%, #25293b 100%);
-    color: #fff;
-    border: 1px solid #35375c;
-    caret-color: #ef9165;
-  }
-  input::placeholder {
-    color: #8b97b3;
-    opacity: 0.8;
-  }
-  input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 2px #ef916570;
-    color: #fff;
-    background: #23242c;
-  }
-  /* Swiper/Slides */
-  .swpier,
-  .swiper-slide,
-  .slide-content {
-    background: transparent !important;
-    color: #f4f5fa !important;
-  }
-  .slide-title,
-  .slide-content h3 { color: #fffbe7 !important;}
-  .slide-desc { color: #dbeaff !important; opacity: .93;}
-  .card .ver-mais {
-    color: #ef9165 !important;
-    font-weight: 700;
-    text-shadow: 0 2px 9px #27273540;
-  }
-  /* Footer links */
-  .footer-contacts a {
-    color: #c3c7cb !important;
-  }
-  .footer-contacts a:hover {
-    color: var(--accent) !important;
-    text-shadow: 0 1px 4px #ef916540;
-  }
-}
-      
+      }
     </style>
   </head>
 
@@ -938,7 +801,7 @@
               <img
                 class="slide-img-bg"
                 src="./img/vila_do_doce.png"
-                alt="Vista de Ribeirão Pires" 
+                alt="Vista de Ribeirão Pires"
                 loading="lazy"
               />
               <div class="slide-gradient ani" aria-hidden="true"></div>
@@ -1028,7 +891,7 @@
             <article class="card">
               <figure>
                 <img
-                  src="img/parque oriental.jpeg"
+                  src="./img/parque.jpg"
                   alt="Lago e jardins do Parque Oriental"
                   loading="lazy"
                 />
@@ -1042,25 +905,15 @@
                   Espaço de lazer com temática japonesa à beira da Represa
                   Billings. Ideal para caminhadas e piqueniques.
                 </p>
-                <button
-                  class="btn-outline ver-mais"
-                  aria-expanded="false"
-                  aria-controls="more-parque"
-                >
-                  Ver mais
-                </button>
-              </div>
-              <p class="more" id="more-parque" hidden>
-                Horário: geralmente aberto das 6h às 18h. Dica: leve água e
-                protetor solar para trilhas curtas; há áreas gramadas para
-                piquenique. Fica próximo a quiosques e costuma haver feira de
-                artesanato aos fins de semana — verifique a programação local.
-              </p>
             </article>
 
             <article class="card">
               <figure>
-                <img src="img/torre.jpg" alt="Torre de Miroku" loading="lazy" />
+                <img
+                  src="./img/ribeiraopires.jpg"
+                  alt="Torre de Miroku"
+                  loading="lazy"
+                />
                 <figcaption>Torre de Miroku — templo e mirante</figcaption>
               </figure>
               <div class="card-body">
@@ -1069,26 +922,12 @@
                   Templo com arquitetura marcante e mirante — visitas geralmente
                   agendadas.
                 </p>
-                <button
-                  class="btn-outline ver-mais"
-                  aria-expanded="false"
-                  aria-controls="more-torre"
-                >
-                  Ver mais
-                </button>
-              </div>
-              <p class="more" id="more-torre" hidden>
-                Observação: muitas visitas são agendadas — confira contatos do
-                templo para horários de visitação. O mirante oferece vista ampla
-                da represa e da cidade; recomenda-se ir no final da tarde para o
-                pôr do sol. Respeite as normas do espaço religioso.
-              </p>
             </article>
 
             <article class="card">
               <figure>
                 <img
-                  src="img/VILA_DO_DOCE.jpeg"
+                  src="./img/vila_do_doce.png"
                   alt="Vila do Doce"
                   loading="lazy"
                 />
@@ -1100,34 +939,20 @@
                   Complexo gastronômico com doces, lanches e lojas de artesanato
                   — ótimo para famílias.
                 </p>
-                <button
-                  class="btn-outline ver-mais"
-                  aria-expanded="false"
-                  aria-controls="more-vila"
-                >
-                  Ver mais
-                </button>
-              </div>
-              <p class="more" id="more-vila" hidden>
-                Ideal para experimentar produtos locais e comprar lembranças. A
-                Vila tem opções para crianças e costuma ter apresentações
-                musicais aos sábados. Recomendado para visita à tarde; vagas de
-                estacionamento variam conforme eventos.
-              </p>
             </article>
 
             <!-- Pontos turísticos extras (inicialmente escondidos) -->
             <article class="card pontos-extra" style="display: none">
               <figure>
                 <img
-                  src="img/mirante.jpg"
+                  src="./img/saojose.jpg"
                   alt="Mirante da Serra do Hermano"
                   loading="lazy"
                 />
-                <figcaption>Mirante da Serra do Hermano</figcaption>
+                <figcaption>Mirante São José</figcaption>
               </figure>
               <div class="card-body">
-                <h3>Mirante da Serra do Hermano</h3>
+                <h3>Mirante São José</h3>
                 <p>
                   Vista panorâmica da cidade, acesso por trilha leve. Ideal para
                   fotos e contemplação da natureza.
@@ -1137,7 +962,7 @@
             <article class="card pontos-extra" style="display: none">
               <figure>
                 <img
-                  src="img/represa.jpg"
+                  src="./img/represa.webp"
                   alt="Passeio de barco na Represa Billings"
                   loading="lazy"
                 />
@@ -1180,7 +1005,7 @@
             <article class="card">
               <figure>
                 <img
-                  src="img/restaurante.jpg"
+                  src="./img/canoa quebrada.jpg"
                   alt="Prato do restaurante Canoa Quebrada"
                   loading="lazy"
                 />
@@ -1192,25 +1017,12 @@
                   Restaurante tradicional com opções em frutos do mar e pizzas
                   artesanais.
                 </p>
-                <button
-                  class="btn-outline ver-mais"
-                  aria-expanded="false"
-                  aria-controls="more-canoa"
-                >
-                  Ver mais
-                </button>
-              </div>
-              <p class="more" id="more-canoa" hidden>
-                Sugestão: experimente a pizza de camarão e as moquecas no fim de
-                semana. Ambiente familiar, aceita reservas para grupos. Horário:
-                normalmente das 12h às 23h — confirme antes de ir.
-              </p>
             </article>
 
             <article class="card">
               <figure>
                 <img
-                  src="img/dcarvalhos.jpg"
+                  src="./img/dcarvalho.jpg"
                   alt="Prato nordestino no D'Carvalhos"
                   loading="lazy"
                 />
@@ -1219,24 +1031,16 @@
               <div class="card-body">
                 <h3>D'Carvalhos Bar</h3>
                 <p>Pratos típicos nordestinos em ambiente descontraído.</p>
-                <button
-                  class="btn-outline ver-mais"
-                  aria-expanded="false"
-                  aria-controls="more-dcarvalhos"
-                >
-                  Ver mais
-                </button>
               </div>
-              <p class="more" id="more-dcarvalhos" hidden>
-                Destaque para pratos como baião de dois e carne de sol. Música
-                ao vivo em datas específicas — confira agenda. Recomendável
-                provar as porções para dividir e experimentar mais sabores.
-              </p>
             </article>
 
             <article class="card">
               <figure>
-                <img src="img/bardovado.png" alt="Bar do Vado" loading="lazy" />
+                <img
+                  src="./img/bardovado.jpg"
+                  alt="Bar do Vado"
+                  loading="lazy"
+                />
                 <figcaption>Bar do Vado — ambiente popular</figcaption>
               </figure>
               <div class="card-body">
@@ -1245,57 +1049,61 @@
                   Bar tradicional com petiscos e música — confirme horários
                   antes de ir.
                 </p>
-                <button
-                  class="btn-outline ver-mais"
-                  aria-expanded="false"
-                  aria-controls="more-vado"
-                >
-                  Ver mais
-                </button>
               </div>
-              <p class="more" id="more-vado" hidden>
-                Ambiente descontraído, bom para happy hour. Petiscos populares
-                incluem bolinhos e porções regionais. Horário e música ao vivo
-                podem variar — ligue antes se for para um evento específico.
-              </p>
             </article>
 
             <!-- Restaurantes extras (inicialmente escondidos) -->
             <article class="card gastronomia-extra" style="display: none">
               <figure>
                 <img
-                  src="img/pizzaria.jpg"
-                  alt="Pizzaria da Vila"
+                  src="./img/familia-eiras.jpg"
+                  alt="Prato do Família Eiras"
                   loading="lazy"
                 />
-                <figcaption>
-                  Pizzaria da Vila — pizzas artesanais no centro
-                </figcaption>
+                <figcaption>Família Eiras — comida brasileira</figcaption>
               </figure>
               <div class="card-body">
-                <h3>Pizzaria da Vila</h3>
+                <h3>Família Eiras</h3>
                 <p>
-                  Grande variedade de pizzas, massas e ambiente acolhedor para
-                  família.
+                  Comida caseira brasileira e ambiente acolhedor.<br />
                 </p>
               </div>
             </article>
+
             <article class="card gastronomia-extra" style="display: none">
               <figure>
                 <img
-                  src="img/churrascaria.jpg"
-                  alt="Churrascaria Pires"
+                  src="./img/boteco.jpg"
+                  alt="Prato do Boteco Brasileiro"
                   loading="lazy"
                 />
                 <figcaption>
-                  Churrascaria Pires — rodízio e cortes especiais
+                  Boteco Brasileiro — porções e música ao vivo
                 </figcaption>
               </figure>
               <div class="card-body">
-                <h3>Churrascaria Pires</h3>
+                <h3>Boteco Brasileiro</h3>
                 <p>
-                  Rodízio de carnes e acompanhamentos típicos, com espaço para
-                  crianças.
+                  Porções, música ao vivo e ambiente descontraído.<br />
+                </p>
+              </div>
+            </article>
+
+            <article class="card gastronomia-extra" style="display: none">
+              <figure>
+                <img
+                  src="./img/pesqueiro.jpg"
+                  alt="Prato do Pesqueiro Tropical"
+                  loading="lazy"
+                />
+                <figcaption>
+                  Pesqueiro Tropical — pesqueiro e restaurante
+                </figcaption>
+              </figure>
+              <div class="card-body">
+                <h3>Pesqueiro Tropical</h3>
+                <p>
+                  Pesqueiro e restaurante ao ar livre, pratos com pescados.<br />
                 </p>
               </div>
             </article>
